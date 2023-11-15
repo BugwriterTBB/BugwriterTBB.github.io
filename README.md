@@ -1,210 +1,189 @@
-# Neumorphism <!-- omit in toc -->
+# Hamilton <!-- omit in toc -->
 
-> Neumorphism designed Jekyll theme for personal websites, portfolios and resumes.
+A minimal and beautiful Jekyll theme best for writing and note-taking.
 
-* Featured on [JAMstack Themes](https://jamstackthemes.dev/theme/jekyll-neumorphism/)
-* Featured on [Jekyll Themes](https://jekyll-themes.com/neumorphism/)
-* Featured on [jekyllthemes](http://jekyllthemes.org/themes/neumorphism/)
+The original purpose of this theme is to be a replacement of the default Jekyll theme -- [Minima](https://github.com/jekyll/minima). Hamilton is an enhancement of Minima but still, keep in minimal.
 
-[![Open Issues](https://badgen.net/github/open-issues/longpdo/neumorphism)](https://github.com/longpdo/neumorphism/issues)
-[![License](https://badgen.net/github/license/longpdo/neumorphism)](LICENSE)
-<a href="https://jekyll-themes.com">
-    <img src="https://img.shields.io/badge/featured%20on-JT-red.svg" height="20" alt="Jekyll Themes Shield" >
-</a>
+Please check out the [demo](https://ngzhio.github.io/jekyll-theme-hamilton/).
 
-[View Demo](https://longpdo.github.io/neumorphism/) · [Report Bug](https://github.com/longpdo/neumorphism/issues) · [Request Feature](https://github.com/longpdo/neumorphism/issues)
+| Skins | Displays |
+| ----- | -------- |
+| Daylight | ![screenshot](screenshot.png) |
+| Sunrise/Sunset | ![screenshot](screenshot-sunrise.png) |
+| Midnight | ![screenshot](screenshot-midnight.png) |
 
-<!-- TABLE OF CONTENTS -->
+## Features <!-- omit in toc -->
+
+- [Jekyll SEO Tag](https://github.com/jekyll/jekyll-seo-tag)
+- [Jekyll Feed](https://github.com/jekyll/jekyll-feed)
+- [Jekyll Sitemap](https://github.com/jekyll/jekyll-sitemap)
+- [Google Analytics](https://analytics.google.com/)
+- [MathJax](https://www.mathjax.org/)
+- [Disqus](https://disqus.com/)
+- [Font Awesome](https://fontawesome.com/)
+- TOC
+- Customizable head
+- Configurable page navigation
+- Customizable styles and skins
+- Archive pages implemented in pure Liquid
+
 ## Table of Contents <!-- omit in toc -->
 
-* [About The Project](#about-the-project)
-  * [Built With](#built-with)
-  * [Features](#features)
-* [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-* [Usage](#usage)
-  * [Personalize and Customize](#personalize-and-customize)
-    * [_config.yml](#_configyml)
-    * [Github Metadata Plugin](#github-metadata-plugin)
-    * [_data/*.yml](#_datayml)
-    * [Particles.js](#particlesjs)
-* [Contributing](#contributing)
-* [License](#license)
-* [Acknowledgements](#acknowledgements)
+- [Installation](#installation)
+- [Configuration](#configuration)
+  - [Optional Parameters](#optional-parameters)
+- [Archive Pages](#archive-pages)
+- [MathJax](#mathjax)
+- [TOC](#toc)
+- [Customization](#customization)
+  - [Metadata](#metadata)
+  - [Navigation](#navigation)
+  - [Social Media](#social-media)
+  - [Skins](#skins)
+  - [More Customized Styles](#more-customized-styles)
+- [License](#license)
 
-<!-- ABOUT THE PROJECT -->
+## Installation
 
-## About The Project
+You can choose one of the following methods to install Hamilton:
 
-[![Project Screenshot][product-screenshot]](https://longpdo.github.io/neumorphism/)
+- Directly specify the `jekyll-theme-hamilton` gem.
 
-This is a personal website built with `Jekyll` and hosted on `Github Pages`, which is based on the new `Neumorphism` design trend and was developed with a mobile-first approach. This can be used by developers, who want to showcase their resume and portfolio. If you want to use this for your own website, fork this repository and then refer to [personalize and customize](#personalize-and-customize).
+    1. Add `gem 'jekyll-theme-hamilton'` into your `Gemfile`.
+    2. Add the below lines into your `_config.yml`.
 
-### Built With
+        ```yml
+        plugins:
+          - jekyll-theme-hamilton
+        ```
 
-* [Jekyll](https://jekyllrb.com/)
+- If your site is hosted on GitHub Pages, you can use [`jekyll-remote-theme`](https://github.com/benbalter/jekyll-remote-theme) to import the master branch of Hamilton.
 
-### Features
+    1. Add `gem 'jekyll-remote-theme'` into your `Gemfile`.
+    2. Add the below lines into your `_config.yml`.
 
-* Mobile-First Responsive Design
-* Animated preloader animation
-* Landing Page with animated background with [particles.js](https://vincentgarreau.com/particles.js/), a Typing Carousel and animated social icons
-* Dark Neumorphism Design on main content
-* [Animations On Scroll](https://michalsnik.github.io/aos/)
-* Filterable *Skills* word cloud
-* [Github's API](https://developer.github.com/v3/) automatically populating the *Open Source Projects* section
-* Gulp dev workflow with [BrowserSync](https://browsersync.io/), [Autoprefixer](https://autoprefixer.github.io/) and `JS` & `SCSS` minifying.
-* [Google Analytics](https://analytics.google.com/)
+        ```yml
+        plugins:
+          - jekyll-remote-theme
 
-<!-- GETTING STARTED -->
+        remote_theme: ngzhio/jekyll-theme-hamilton
+        ```
 
-## Getting Started
+## Configuration
 
-To get a local copy up and running follow these simple steps.
+After installation, you can run `jekyll serve` to check out your site, but before that, *make sure* the below **required parameters** are configured in your `_config.yml`.
 
-`The commands and instructions I provide are for MacOS - please look up the specific commands for your OS on your own.`
+| Parameters | Types | Specifications |
+|:---------- |:----- |:-------------- |
+| `title`    | string | The site title |
+| `disqus`   | string | The Disqus shortname; Unless you don't want to enable the comments system, you must specify this parameter. It is used in the production environment. |
+| `google_analytics` | string | The Google Analytics tracking ID; It is used in the production environment. |
 
-### Prerequisites
+### Optional Parameters
 
-* [NodeJS](https://nodejs.org/en/)
+| Parameters | Types | Specifications |
+|:---------- |:----- |:-------------- |
+| `author`   | string | The name of the author of the site; It would be showed in the copyright statement. |
+| `avatar`   | string | The avatar of the author of the site. |
+| `email`    | string | The email of the author of the site. |
+| `location` | string | The current living location of the author of the site. |
+| `skin`     | string | The skin name. See more information on the [Customization](#customization) section. |
+| `lang`     | string | The language of the site; The default value is `en`. |
+| `paginate` | int    | The number of posts on each page. |
+| `date_format` | string | The date format; The default value is `%b %-d, %Y`. |
+| `subscribe` | boolean | Show the subsribe feed button. |
 
-```sh
-brew install node
+## Archive Pages
+
+Hamilton implements some archive templates in pure Liquid. For example, if you want to create a category archive page, set the below parameters on that page:
+
+```yml
+---
+layout: archive-taxonomies
+type: categories
+---
 ```
 
-If you need to switch between Node versions regurlarly, I would recommend to install Node via [Node Version Manager](https://github.com/nvm-sh/nvm/blob/master/README.md#manual-install).
+Or a tag archive page:
 
-* [Jekyll](https://jekyllrb.com/)
-
-```sh
-gem install bundler jekyll
+```yml
+layout: archive-taxonomies
+type: tags
 ```
 
-For more information, refer to [this](https://jekyllrb.com/docs/installation/).
+Or archive by years:
 
-* [Yarn](https://yarnpkg.com/)
-
-```sh
-npm install -g yarn
+```yml
+layout: archive-years
 ```
 
-### Installation
+## MathJax
 
-> Recommended way: If you want to contribute to this theme or open issues due to problems implementing this on your own, I would recommend forking the repository directly. This makes it easier for me to solve open issues and questions or check pull requests.
+You can enable MathJax on each post or page, just set `math: true` on that page.
 
-1.1: Fork the repository (using the `Fork` button at the top) and then clone the repository
+## TOC
 
-```sh
-# Replace {YOUR_USERNAME} with your actual username
-git clone https://github.com/{YOUR_USERNAME}/neumorphism.git
+If you want to show the Table of Contents of a post or page on the left sidebar, just set `toc: true` on that page.
+
+## Customization
+
+### Metadata
+
+You can create a file `_includes/custom-head.html` in your repository, and add any metadata into that page, e.g. favicons.
+
+### Navigation
+
+You can create a file `_data/navigation.yml` to configure links to some pages. For example,
+
+```yml
+- title: About
+  url: /about/
+- title: Categories
+  url: /categories/
+- title: Tags
+  url: /tags/
 ```
 
-or
+The navigation bar also supports dropdown submenus:
 
-1.2: Create your own repository (using the green `Use this template` button at the top) and then clone the repository
-
-```sh
-# Replace {YOUR_USERNAME}, {YOUR_REPOSITORY} with the actual values
-git clone https://github.com/{YOUR_USERNAME}/{YOUR_REPOSITORY}.git
+```yml
+- title: About
+  url: /about/
+- title: Categories
+  url: /categories/
+- title: Tags
+  url: /tags/
+- title: More
+  sublinks:
+    - title: FAQ
+      url: /faq/
+    - title: Docs
+      url: /docs/
 ```
 
-2: Change directory into neumorphism
+### Social Media
 
-```sh
-cd neumorphism
+You can create a file `_data/social.yml` to configure links to your social media. For example,
+
+```yml
+- title: Twitter
+  url: https://twitter.com/ngzhio
+  icon: fab fa-twitter
+- title: GitHub
+  url: https://github.com/ngzhio/jekyll-theme-hamilton
+  icon: fab fa-github
 ```
 
-3: Install dependencies
+### Skins
 
-```sh
-yarn
-bundle install
-```
+You can select a skin by setting `skin` in `_config.yml`. The built-in skins include `daylight`, `midnight`, `sunrise`, and `sunset`. If you don't specify any skin, Hamilton would dynamically select one in these built-in skins according to different hours in a day.
 
-<!-- USAGE EXAMPLES -->
+You can also customize a new skin, for example, a skin called `solarized`. You need to copy [`_sass/hamilton/skins/daylight.scss`](_sass/hamilton/skins/daylight.scss) into your repository and then rename it to `solarized.scss`, and adjust some colors in that file. Finally, specify `skin: solarized` in `_config.yml`.
 
-## Usage
+### More Customized Styles
 
-* Run and develop locally with live server at `http://localhost:4000`, this will also build production-ready `JS` and `SCSS` assets with every change
-
-```sh
-gulp
-```
-
-* After committing and pushing, see the `Settings` page of your repository to see where your site is published at via `Github Pages`.
-
-### Personalize and Customize
-
-#### _config.yml
-
-Edit `_config.yml` to personalize your site. For documentation, refer to [docs/config.md](https://github.com/longpdo/neumorphism/blob/master/docs/config.md).
-
-#### Github Metadata Plugin
-
-If you want to automatically have your Github repositories pulled for the *Open Source Projects* section, then you also need to authenticate yourself for the Github Metadata plugin to work.
-
-You need to generate a new personal access token on GitHub:
-
-* Go to the [Github Token site](https://github.com/settings/tokens/new)
-* Select the scope `public_repository`, and add a description.
-* Confirm and save the settings. Copy the token you see on the page.
-* Create a `.env` file inside your repository and add your generated `JEKYLL_GITHUB_TOKEN`:
-
-```text
-JEKYLL_GITHUB_TOKEN=0YOUR0GENERATED0TOKEN0
-```
-
-To complete the configuration for the Github Metadata plugin, you also need to change the value of `repository` inside `_config.yml`. After this, you should the Github Metadata plugin should work properly.
-
-For optimal results, you should make sure, that every Github project, you want included on this portfolio, has added following informations on Github:
-
-* Description
-* Homepage link, if there is a live version of it
-* Topics
-
-Example:
-![Github Repository Information Example][github-repo-info]
-
-#### _data/*.yml
-
-Edit files inside `_data` to add information to the portfolio. For documentation, refer to [docs/data.md](https://github.com/longpdo/neumorphism/blob/master/docs/data.md).
-
-#### Particles.js
-
-Edit `assets/particles.json` to customize the landing page backgorund animation. For more information, refer to [this](https://github.com/VincentGarreau/particles.js/#options).
-
-<!-- CONTRIBUTING -->
-
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<!-- LICENSE -->
+If you want to create more CSS styles in your site, creating a file `_sass/hamilton/custom-styles.scss`, and putting your code in there, Hamilton would automatically refer to them.
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
-
-<!-- ACKNOWLEDGEMENTS -->
-
-## Acknowledgements
-
-* [Font Awesome](https://fontawesome.com/)
-* [Normalize.css](https://necolas.github.io/normalize.css/)
-* Based Preloader on [Codrin Pavel's](https://codepen.io/zerospree/pen/aCjAz) version
-* Typing Carousel by [Gregory Schier](https://codepen.io/gschier/pen/jkivt)
-* Social Button Animation by [Stéphane Lyver](https://codepen.io/wouwi/pen/Lwrmi)
-* Adapted [Damian Jankowski's](https://codepen.io/dolaron/pen/rNadmOE) color palette for the neumorphism design
-* Based Timeline on [Krishna Babu's](https://codepen.io/krishnab/pen/OPwqbW) version
-
-<!-- MARKDOWN LINKS & IMAGES -->
-
-[product-screenshot]: https://raw.githubusercontent.com/longpdo/neumorphism/master/docs/screenshot.gif
-[github-repo-info]: https://raw.githubusercontent.com/longpdo/neumorphism/master/docs/github-repo-info.png
+The theme is available as open source under the terms of the [MIT License](LICENSE.txt).
